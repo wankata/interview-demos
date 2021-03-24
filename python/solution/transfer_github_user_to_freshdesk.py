@@ -16,28 +16,21 @@ def transfer_user(args: Mapping[str, str]):
         print("\nError occured while fetching the user'sinformation from GitHub\n\n")
         raise
 
-    contact = {
+    post_params = {
         'name': user.name or user.login,
         'email': user.email,
         'twitter_id': user.twitter_username,
-        'unique_external_id': user.id,
-        'company_id': user.company,
         'address': user.location,
-        'custom_fields': {
-            'github_login': user.login,
-            'github_url': user.url,
-            'blog': user.blog,
-            },
         'description': user.bio,
     }
 
     try:
-        contact = contacts.create_contact(args['subdomain'], contact)
+        contact = contacts.create_contact(args['subdomain'], post_params)
     except FreshdeskClientError:
         print('\nError occured while creating the contact in Freshdesk\n\n')
         raise
 
-    return 'Successfully transfered GitHub user {user.login} to Freshdesk with id: {contact.id}'
+    print(f'Successfully transfered GitHub user {user.login} to Freshdesk with id: {contact.id}')
 
 
 def main() -> None:
