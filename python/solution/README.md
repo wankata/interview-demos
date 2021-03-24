@@ -26,6 +26,15 @@ in sync. If a colleague of you changes the python requirements and you omit the 
 you will be in trouble. The build uses cache, so it is cheap to do it.
 
 
+## Usage
+To transfer a Github user to Freshdesk, you need to:
+
+  - `$ cd python/solution/environment`
+  - `$ docker-compose exec app bash`
+  - `$ cd python/solution/`
+  - `$ ./transfer_github_user_to_freshdesk.py --help`
+
+
 ## Utility scripts
 
 To run all the linters and tests, you have two options:

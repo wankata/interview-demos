@@ -1,0 +1,2 @@
+python-github-api-client @ git+https://github.com/wankata/python-github-api-client.git@master
+python-freshdesk-api-client @ git+https://github.com/wankata/python-freshdesk-api-client.git@master
